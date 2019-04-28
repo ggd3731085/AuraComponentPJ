@@ -1,5 +1,4 @@
-<aura:component implements="force:hasRecordId,
-                            flexipage:availableForRecordHome">
+<aura:component implements="force:hasRecordId,flexipage:availableForRecordHome">
  <aura:attribute name="record"
                     type="Object"
                     description="The record object to be displayed"/>

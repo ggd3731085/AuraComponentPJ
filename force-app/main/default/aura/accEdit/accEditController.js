@@ -8,6 +8,11 @@
                } else if (saveResult.state === "ERROR") {
                    console.log('Problem saving record, error: ' + 
                               JSON.stringify(saveResult.error));
+                var errMsg = "";
+                for (var i = 0; i < saveResult.error.length; i++) {
+                    errMsg += saveResult.error[i].message + "\n";
+                }
+                component.set("v.recordSaveError", errMsg)
                } else {
                    console.log('Unknown problem, state: ' + saveResult.state + ', error: ' + JSON.stringify(saveResult.error));
                }

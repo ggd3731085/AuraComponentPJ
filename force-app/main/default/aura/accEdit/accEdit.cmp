@@ -1,13 +1,12 @@
-<aura:component implements="force:hasRecordId,
-                            flexipage:availableForRecordHome">
+<aura:component implements="force:hasRecordId,flexipage:availableForRecordHome">
  <aura:attribute name="record"
                    type="Object"
                    description="The record object to be displayed"/>
     <aura:attribute name="accountRecord"
                     type="Object"
                     description="A simplified view record object to be displayed"/>
-    <aura:attribute name="recordError"
-                    type="Object"
+    <aura:attribute name="recordSaveError"
+                    type="String"
                     description="An error message bound to force:recordData"/>
     
     <force:recordData aura:id="accountRecordId"
@@ -16,7 +15,7 @@
                       mode="EDIT"
                       targetRecord="{!v.record}"
                       targetFields="{!v.simpleRecord}"
-                      targetError="{!v.recordError}"/>
+                      targetError="{!v.recordSaveError}"/>
     
     
     <!-- Display an editing form -->
@@ -31,9 +30,9 @@
     </div>
     
     <!-- Display Lightning Data Service errors, if any -->
-    <aura:if isTrue="{!not(empty(v.recordError))}">
+    <aura:if isTrue="{!not(empty(v.recordSaveError))}">
         <div class="recordError">
-            {!v.recordError}
+            {!v.recordSaveError}
         </div>
     </aura:if>
 </aura:component>
