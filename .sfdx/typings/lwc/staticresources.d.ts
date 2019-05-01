@@ -22,3 +22,7 @@ declare module "@salesforce/resourceUrl/fivestar" {
     var fivestar: string;
     export default fivestar;
 }
+declare module "@salesforce/resourceUrl/vfimagetest" {
+    var vfimagetest: string;
+    export default vfimagetest;
+}

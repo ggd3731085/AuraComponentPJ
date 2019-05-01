@@ -1,0 +1,16 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" 
+                access="global"
+                controller="HelloWorldCmpCtrl">
+  <aura:attribute name="accounts" type="Account[]" />
+  <aura:attribute name="str" type="String" />
+  <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+  <Lightning:Layout>
+      <lightning:layoutItem padding="around-small" size="3">
+          <aura:Iteration items="{!v.accounts}" var="item">
+               <c:accountListItem item="{!item}" />
+           </aura:Iteration>
+      </lightning:layoutItem>
+  </Lightning:Layout>
+   <ui:outputText value="{!v.str}" /><br/>
+  <p>Hello Lightning!</p>
+</aura:component>

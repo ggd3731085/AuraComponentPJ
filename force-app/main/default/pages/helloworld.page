@@ -1,0 +1,34 @@
+<apex:page controller="helloworldCtrl" >
+  <script text="text/javascript/">
+        var changeNameJs = function() {
+        changeNameAF('open1');
+            //changeNameAF('open2');
+    }
+  </script>
+  <apex:form >
+        <apex:actionFunction name="changeNameAF" action="{!changeName}" reRender="outputPanelId1">
+            <apex:param name="targetId1" value="" assignTo="{!varStr}" />
+        </apex:actionFunction>
+      <apex:inputtext value="{!varStr}"/>
+      <apex:commandButton action="{!actionGet}" value="ボタン"/>
+      <table>
+        <apex:variable var="rowNum" value="{!0}" />
+        <table>
+            <apex:repeat value="{!accounts}" var="acc" id="theRepeat">
+                <tr>
+                    <td>
+                        <apex:outputText value="{!acc.id}" styleClass="id{!rowNum}"/><br/>
+                    </td>
+                    <td>
+                        <apex:inputText value="{!acc.name}" styleClass="name{!rowNum}" /><br/>
+                    </td>
+                    <td>
+                        <apex:inputField value="{!acc.Industry}" onchange="changeNameJs({!rowNum})" /><br/>
+                    </td>
+                </tr>
+                <apex:variable var="rowNum" value="{!rowNum+1}" />
+            </apex:repeat>
+        </table>
+      </table>
+  </apex:form>
+</apex:page>

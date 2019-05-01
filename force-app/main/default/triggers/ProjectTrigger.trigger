@@ -1,3 +1,5 @@
 trigger ProjectTrigger on Project__c (after update) {
-    //Call the Billing Service callout logic here
+    if ( !System.isFuture() ) {
+        BillingCalloutService.callBillingService( Trigger.new, Trigger.OldMap );
+    }
 }
